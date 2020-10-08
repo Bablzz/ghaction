@@ -26,6 +26,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           brew install docker-machine docker virtualbox
+          brew cask install virtualbox
           docker-machine create --driver virtualbox default
           docker-machine start
           eval "$(docker-machine env default)"
