@@ -26,7 +26,5 @@ jobs:
       - name: Run a multi-line script
         run: |
           brew install docker-machine docker
-          docker-machine create default
           docker-machine start
-          eval "$(docker-machine env default)"
           docker ps
