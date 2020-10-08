@@ -26,3 +26,22 @@ jobs:
       - name: Run a multi-line script
         run: |
           docker ps
+
+  build_ьфсщы:
+    # The type of runner that the job will run on
+    runs-on: macos-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          brew install docker-machine docker
+          brew services start docker-machine
+          docker-machine create --driver virtualbox default
+          eval "$(docker-machine env default)"
+          docker ps
+
